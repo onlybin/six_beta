@@ -1,0 +1,36 @@
+name: 自动量化推演引擎
+
+on:
+  schedule:
+    - cron: '40 13 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 获取最新代码
+      uses: actions/checkout@v3
+
+    - name: 配置 Python 环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 安装核心算法库
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 执行 AI 深度推演流水线
+      run: |
+        python main.py
+
+    - name: 保存推演结果并更新到网页
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "🤖 云端定时计算完成：更新数据库与大屏报表" || exit 0
+        git push
