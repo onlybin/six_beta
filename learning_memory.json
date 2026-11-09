@@ -1,20 +1,20 @@
 {
-  "target_period": "2026313",
-  "timestamp": "2026-11-08 18:27:11",
+  "target_period": "2026314",
+  "timestamp": "2026-11-09 23:06:32",
   "recommended_normal": [
-    1,
+    2,
     3,
-    9,
+    8,
+    10,
     13,
-    33,
-    49
+    23
   ],
   "recommended_special": [
-    10,
-    49,
-    33,
-    9,
+    11,
     13,
-    3
+    23,
+    3,
+    10,
+    2
   ]
 }
